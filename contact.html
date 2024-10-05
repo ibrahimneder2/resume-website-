@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Ibrahim Neder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Feature 1: Website Header (Global Structure) -->
+    <header>
+        <h1>Contact</h1>
+    </header>
+
+    <!-- Feature 2: Navigation Bar (Global Structure) -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="work_history.html">Work History</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+<!-- Feature 3: Contact Form -->
+    <section>
+        <h2>Contact Me</h2>
+        <!-- Email Icon Image -->
+        <img src="email.jpg" alt="Contact Image" style="width:100%; max-width:600px;">
+
+        <form name="contactForm" onsubmit="return validateForm()" action="submit.html" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            
+            <input type="submit" value="Submit">
+        </form>
+
+ <!-- Feature 4: Google Map and Image Added to Contact Page -->
+        <h3>Find Me Here</h3>
+        <div id="map" style="height: 400px; width: 100%;"></div>
+    </section>
+
+<!-- Website Footer -->
+    <footer>
+        <p>&copy; 2024 Ibrahim Neder</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function validateForm() {
+            var name = document.forms["contactForm"]["name"].value;
+            var email = document.forms["contactForm"]["email"].value;
+            if (name == "" || email == "") {
+                alert("Name and email must be filled out");
+                return false;
+            }
+        }
+
+        function initMap() {
+            var location = {lat: 41.8781, lng: -87.6298}; // Coordinates for Chicago, IL
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    </script>
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtKBl5Bh-eGyNJMOg_8ade3yKIsdyLOhA&callback=initMap" async defer></script>
+
+</body>
+</html>
